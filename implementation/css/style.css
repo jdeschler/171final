@@ -1,7 +1,15 @@
-/* custom css rules */
-
 body {
-	font-family: 'Raleway', sans-serif;
+	font-family: "Muli", sans-serif;
+	background-color: #FFE7B1;
+}
+
+.section-header {
+	padding-bottom: 15px;
+}
+
+.section-header h2 {
+	font-family: "Muli 900", sans-serif;
+	font-weight: bold;
 }
 
 .tip-label {
@@ -16,4 +24,23 @@ body {
 	    color: #fff;
 	    border-radius: 2px;
 	    pointer-events: none;
+}
+.section-header h3 {
+	color: #464a4e;
+	font-size: 24px;
+}
+
+#title-header {
+	padding: 15px 30px;
+}
+
+#title-header h1 {
+	font-family: "Muli 900", sans-serif;
+	font-weight: bolder;
+	font-size: 48px;
+}
+
+#title-header h3 {
+	color: #464a4e;
+	font-size: 24px;
 }
