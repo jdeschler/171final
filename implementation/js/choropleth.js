@@ -44,6 +44,8 @@ Choropleth.prototype.initVis = function() {
 
     vis.svg.call(vis.tip);
 
+    vis.colorScale = d3.scaleLinear();
+
     vis.wrangleData();
 }
 
@@ -54,8 +56,8 @@ Choropleth.prototype.wrangleData = function() {
     var vis = this;
 
     // get values from selectbox TODO
-    var yearmin = 1996;
-    var yearmax = 2003;
+    var yearmin = d3.select("#start-year").property("value");
+    var yearmax = d3.select("#end-year").property("value");
 
     // make displayData
     var agg = {}
@@ -69,8 +71,7 @@ Choropleth.prototype.wrangleData = function() {
     vis.displayData = agg;
 
     // change colorScale
-    vis.colorScale = d3.scaleLinear()
-        .domain([d3.min(acc), 0, d3.max(acc)])
+        vis.colorScale.domain([-1, 0, 1])
         .range(['red', 'white', 'green']);
     console.log(vis.colorScale.domain())
 
@@ -83,6 +84,10 @@ Choropleth.prototype.wrangleData = function() {
  */
 Choropleth.prototype.updateVis = function(){
     var vis = this;
+
+    d3.select("#start-year").on("change", function() {vis.wrangleData()});
+
+    d3.select("#end-year").on("change", function() {vis.wrangleData()});
 
     // update tooltips
     vis.tip.html(function(d) {
@@ -98,10 +103,14 @@ Choropleth.prototype.updateVis = function(){
     })
 
     // update colors
-    vis.svg
+    var countries = vis.svg
         .selectAll("path")
-        .data(vis.mapData)
+        .data(vis.mapData);
+    countries
         .enter().append("path")
+        .merge(countries)
+        .transition()
+        .duration(500)
         .attr("d", vis.path)
         .attr("fill", function(d) {
             var state = d.properties.name;
@@ -112,4 +121,5 @@ Choropleth.prototype.updateVis = function(){
         })
         .on("mouseover", vis.tip.show)
         .on("mouseout", vis.tip.hide);
+
 }
