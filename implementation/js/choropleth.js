@@ -23,7 +23,7 @@ Choropleth.prototype.initVis = function() {
     vis.margin = {top: 0, right: 0, bottom: 30, left: 60};
 
     vis.width = 840 - vis.margin.left - vis.margin.right,
-        vis.height = 800 - vis.margin.top - vis.margin.bottom;
+        vis.height = 600 - vis.margin.top - vis.margin.bottom;
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
