@@ -34,7 +34,6 @@ Choropleth.prototype.initVis = function() {
 
     vis.projection = d3.geoAlbersUsa().translate([vis.width/2, vis.height/2]);
     vis.path = d3.geoPath().projection(vis.projection);
-    console.log(vis.topodata)
     vis.mapData = vis.topodata.features;
 
     // tooltips
@@ -75,8 +74,8 @@ Choropleth.prototype.wrangleData = function() {
     vis.displayData = agg;
 
     // change colorScale
-        vis.colorScale.domain([-1, 0, 1])
-        .range(['red', 'white', 'green']);
+        vis.colorScale.domain([-1, 0])
+        .range(['#E8630B', '#FFEF37']);
     console.log(vis.colorScale.domain())
 
     // Update the visualization
@@ -99,7 +98,9 @@ Choropleth.prototype.updateVis = function(){
         var acc = "<span class=tip-label>" +
             state + ": ";
         if (!val)
-            acc += "<i>No Data Available</i>"
+            acc += "<i>No Data Available</i>";
+        else if (val > 0)
+            acc += "<i>No loss</i>"
         else
             acc += d3.format(".2%")(val)
         return acc;
@@ -123,7 +124,36 @@ Choropleth.prototype.updateVis = function(){
             var val = vis.displayData[state];
             if (!val)
                 return "lightgray";
+            if (val > 0)
+                return vis.colorScale(0);
             return vis.colorScale(val);
         });
 
+    // add legend, adapted from http://bl.ocks.org/KoGor/5685876
+    var temp = Object.values(vis.displayData).filter(val => val < 0).sort();
+    console.log(temp);
+    var legend_data = [temp[0], temp[Math.floor(temp.length/2)], temp[temp.length - 1]]
+
+    var legend = vis.svg.selectAll("g.legend")
+        .data(legend_data)
+        .enter().append("g")
+        .attr("class", "legend");
+
+    var ls_w = 20, ls_h = 20;
+
+    var legend_labels = ["No Loss", "50% loss", "100% loss"]
+
+    legend.append("rect")
+        .attr("x", vis.width-100)
+        .attr("y", function(d, i){ return vis.height - (i*ls_h) - 2*ls_h;})
+        .attr("width", ls_w)
+        .attr("height", ls_h)
+        .style("fill", function(d) { return vis.colorScale(d); })
+        .style("opacity", 0.8);
+
+    legend.append("text")
+        .attr("x", vis.width-75)
+        .attr("font-size", 12)
+        .attr("y", function(d, i){ return vis.height - (i*ls_h) - ls_h - 4;})
+        .text(function(d, i){ return legend_labels[i]; });
 }
