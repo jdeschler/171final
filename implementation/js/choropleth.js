@@ -38,7 +38,11 @@ Choropleth.prototype.initVis = function() {
     vis.mapData = vis.topodata.features;
 
     // tooltips
-    vis.tip = d3.tip()
+    vis.tip = d3.tip();
+
+
+    // update tooltips
+    vis.tip
         .attr("class", "d3-tip")
         .offset([5,0]);
 
@@ -55,7 +59,7 @@ Choropleth.prototype.initVis = function() {
 Choropleth.prototype.wrangleData = function() {
     var vis = this;
 
-    // get values from selectbox TODO
+    // get values from selectbox
     var yearmin = d3.select("#start-year").property("value");
     var yearmax = d3.select("#end-year").property("value");
 
@@ -89,7 +93,6 @@ Choropleth.prototype.updateVis = function(){
 
     d3.select("#end-year").on("change", function() {vis.wrangleData()});
 
-    // update tooltips
     vis.tip.html(function(d) {
         var state = d.properties.name;
         var val = vis.displayData[state];
@@ -98,16 +101,19 @@ Choropleth.prototype.updateVis = function(){
         if (!val)
             acc += "<i>No Data Available</i>"
         else
-            acc += d3.format("%")(val)
+            acc += d3.format(".2%")(val)
         return acc;
-    })
+    });
 
     // update colors
     var countries = vis.svg
         .selectAll("path")
         .data(vis.mapData);
+
     countries
         .enter().append("path")
+        .on("mouseover", vis.tip.show)
+        .on("mouseout", vis.tip.hide)
         .merge(countries)
         .transition()
         .duration(500)
@@ -118,8 +124,6 @@ Choropleth.prototype.updateVis = function(){
             if (!val)
                 return "lightgray";
             return vis.colorScale(val);
-        })
-        .on("mouseover", vis.tip.show)
-        .on("mouseout", vis.tip.hide);
+        });
 
 }

@@ -17,17 +17,22 @@ body {
 }
 
 .d3-tip {
-	    line-height: 1;
-	    font-weight: normal;
-	    padding: 12px;
-	    background: rgba(0, 0, 0, 0.8);
-	    color: #fff;
-	    border-radius: 2px;
-	    pointer-events: none;
+	line-height: 1;
+	font-weight: normal;
+	padding: 12px;
+	background: rgba(0, 0, 0, 0.8);
+	color: #fff;
+	border-radius: 2px;
+	pointer-events: none;
 }
+
 .section-header h3 {
 	color: #464a4e;
 	font-size: 24px;
+}
+
+.form-group {
+	padding-left: 15px;
 }
 
 #title-header {
