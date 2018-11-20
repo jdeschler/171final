@@ -9,7 +9,6 @@ Choropleth = function(_parentElement, _data, _topodata) {
     this.data = _data;
     this.topodata = _topodata;
 
-    // No data wrangling, no update sequence
     this.displayData = this.data;
 
     this.initVis();
@@ -47,7 +46,7 @@ Choropleth.prototype.initVis = function() {
 
     vis.svg.call(vis.tip);
 
-    vis.colorScale = d3.scaleLinear();
+    vis.colorScale = d3.scaleQuantize();
 
     vis.wrangleData();
 }
@@ -59,24 +58,24 @@ Choropleth.prototype.wrangleData = function() {
     var vis = this;
 
     // get values from selectbox
-    var yearmin = d3.select("#start-year").property("value");
-    var yearmax = d3.select("#end-year").property("value");
+    vis.yearmin = d3.select("#start-year").property("value");
+    vis.yearmax = d3.select("#end-year").property("value");
 
     // make displayData
     var agg = {}
     var acc = []
     vis.data.forEach(function(d){
-        var nmin = Number(d[yearmin]);
-        var nmax = Number(d[yearmax]);
+        var nmin = Number(d[vis.yearmin]);
+        var nmax = Number(d[vis.yearmax]);
         agg[d.State] = (nmax - nmin)/nmin;
         acc.push((nmax - nmin)/nmin)
     });
     vis.displayData = agg;
 
     // change colorScale
-        vis.colorScale.domain([-1, 0])
-        .range(['#E8630B', '#FFEF37']);
-    console.log(vis.colorScale.domain())
+    vis.colors = ["#E8FF64", "#E8C808", "#FFB316", "#E86B08", "#FF3409"];
+    vis.colorScale.domain([-1, 0])
+        .range(vis.colors.reverse());
 
     // Update the visualization
     vis.updateVis();
@@ -130,30 +129,39 @@ Choropleth.prototype.updateVis = function(){
         });
 
     // add legend, adapted from http://bl.ocks.org/KoGor/5685876
-    var temp = Object.values(vis.displayData).filter(val => val < 0).sort();
-    console.log(temp);
-    var legend_data = [temp[0], temp[Math.floor(temp.length/2)], temp[temp.length - 1]]
-
     var legend = vis.svg.selectAll("g.legend")
-        .data(legend_data)
+        .data(vis.colors)
         .enter().append("g")
         .attr("class", "legend");
 
-    var ls_w = 20, ls_h = 20;
+    let legend_labels = ["No loss", "20% loss", "40% loss", "60% loss", "80% loss", "100% loss"]
 
-    var legend_labels = ["No Loss", "50% loss", "100% loss"]
+
+    let ls_w = 20, ls_h = 20;
+
 
     legend.append("rect")
         .attr("x", vis.width-100)
         .attr("y", function(d, i){ return vis.height - (i*ls_h) - 2*ls_h;})
         .attr("width", ls_w)
         .attr("height", ls_h)
-        .style("fill", function(d) { return vis.colorScale(d); })
+        .style("fill", function(d,i) { return vis.colors[i]; })
         .style("opacity", 0.8);
 
-    legend.append("text")
+    legend.selectAll("text")
+        .data(legend_labels)
+        .enter()
+        .append("text")
         .attr("x", vis.width-75)
         .attr("font-size", 12)
-        .attr("y", function(d, i){ return vis.height - (i*ls_h) - ls_h - 4;})
+        .attr("y", function(d, i){ return vis.height - (i*ls_h) - .5*ls_h - 4;})
         .text(function(d, i){ return legend_labels[i]; });
+
+    // append random extra bits
+    legend.append("text")
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "top")
+        .attr("x", vis.width - 75)
+        .attr("y", vis.height - ((legend_labels.length+1)*ls_h))
+        .text("Bee colony loss:");
 }
