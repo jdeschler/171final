@@ -14,4 +14,5 @@ function createVis(error, usData, colCounts) {
     if (error) { console.log(error);}
 
     var choropleth = new Choropleth("choropleth-area", colCounts, usData)
+    var flower = new Flower("flower-area", [])
 }

@@ -21,8 +21,8 @@ Choropleth.prototype.initVis = function() {
     var vis = this;
     vis.margin = {top: 0, right: 0, bottom: 30, left: 60};
 
-    vis.width = 840 - vis.margin.left - vis.margin.right,
-        vis.height = 600 - vis.margin.top - vis.margin.bottom;
+    vis.width = 600 - vis.margin.left - vis.margin.right,
+        vis.height = 400 - vis.margin.top - vis.margin.bottom;
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -31,7 +31,7 @@ Choropleth.prototype.initVis = function() {
         .append("g")
         .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
-    vis.projection = d3.geoAlbersUsa().translate([vis.width/2, vis.height/2]);
+    vis.projection = d3.geoAlbersUsa().translate([vis.width/2, vis.height/2]).scale(600);
     vis.path = d3.geoPath().projection(vis.projection);
     vis.mapData = vis.topodata.features;
 
@@ -159,9 +159,8 @@ Choropleth.prototype.updateVis = function(){
 
     // append random extra bits
     legend.append("text")
-        .attr("text-anchor", "middle")
         .attr("alignment-baseline", "top")
-        .attr("x", vis.width - 75)
-        .attr("y", vis.height - ((legend_labels.length+1)*ls_h))
-        .text("Bee colony loss:");
+        .attr("x", vis.width - 100)
+        .attr("y", vis.height - ((legend_labels.length+.5)*ls_h))
+        .text("Colony loss:");
 }
