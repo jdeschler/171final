@@ -87,14 +87,13 @@ Choropleth.prototype.wrangleData = function() {
 Choropleth.prototype.updateVis = function(){
     var vis = this;
 
-    d3.select("#start-year").on("change", function() {vis.wrangleData()});
-
-    d3.select("#end-year").on("change", function() {vis.wrangleData()});
+    d3.select("#start-year").on("change.choropleth", function() {vis.wrangleData()});
+    d3.select("#end-year").on("change.choropleth", function() {vis.wrangleData()});
 
     vis.tip.html(function(d) {
         var state = d.properties.name;
         var val = vis.displayData[state];
-        var acc = "<span class=tip-label>" +
+        var acc = "<span class='tip-label'>" +
             state + ": ";
         if (!val)
             acc += "<i>No Data Available</i>";

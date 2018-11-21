@@ -7,7 +7,6 @@ Flower = function(_parentElement, _data, _censusdata) {
     this.parentElement = _parentElement;
     this.data = _data;
     this.censusdata = _censusdata;
-    console.log(this.censusdata);
 
     this.displayData = this.data;
 
@@ -31,6 +30,12 @@ Flower.prototype.initVis = function() {
 
     vis.rad = vis.width/4;
 
+    // must declare this here so we can wipe it later
+    vis.flower = vis.svg
+        .append('g')
+        .attr("class", "flower")
+        .attr("transform", "translate("+ (vis.rad*2) +"," + (vis.height/2 - vis.rad) + ")");
+
     vis.petalSize = d3.scaleSqrt()
         .domain([0, 1])
         .range([0, vis.rad]);
@@ -46,29 +51,34 @@ Flower.prototype.initVis = function() {
     })
     vis.censusdata = tempCensus;
 
+    // tooltips - tipbox
+    vis.tipbox = vis.svg
+        .append("text").attr("class", "tipbox")
+        .attr("x", vis.width/2).attr("y", vis.height/2 + .8 * vis.rad)
+        .attr("text-anchor", "middle").text("");
+
+
     vis.wrangleData();
 }
 
 Flower.prototype.wrangleData = function() {
     var vis = this;
 
-    // TODO make this work
     // get values from selectbox
     vis.yearmin = d3.select("#start-year").property("value");
     vis.yearmax = d3.select("#end-year").property("value");
     vis.displayData = {};
 
-    console.log(vis.data)
     vis.data.forEach(function(d) {
        var value = d[vis.yearmin] - d[vis.yearmax];
        var region = vis.censusdata[d.State];
        if (!vis.displayData[region]) {
            var temp = {};
            temp['region'] = region;
-           temp['val'] = 0;
+           temp['num'] = 0;
            vis.displayData[region] = temp;
        }
-       vis.displayData[region].val += value;
+       vis.displayData[region].num += value;
     });
     delete vis.displayData['undefined'];
 
@@ -77,31 +87,32 @@ Flower.prototype.wrangleData = function() {
     var tot = 0;
     vis.displayData = [];
     Object.keys(copy).forEach(function(t) {
-        if (copy[t].val > 0) {
+        if (copy[t].num > 0) {
             vis.displayData.push(copy[t])
-            tot += copy[t].val;
+            tot += copy[t].num;
         }
         else
-            vis.displayData.push({'region': copy[t].region, 'val': 0})
+            vis.displayData.push({'region': copy[t].region, 'num': 0})
     });
 
     // change to percentages
-    vis.displayData.forEach(function(d) { d.val = d.val/tot;});
-    console.log(vis.displayData);
+    vis.displayData.forEach(function(d) { d.val = d.num/tot;});
+
     vis.updateVis();
 }
 
 Flower.prototype.updateVis = function() {
     var vis = this;
 
-    // selectbox listeners
-    d3.select("#start-year").on("change", function() {vis.wrangleData()});
-    d3.select("#end-year").on("change", function() {vis.wrangleData()});
+    vis.flower.selectAll("*")
+        .transition()
+        .duration(600)
+        .style("opacity", 0)
+        .remove();
 
-    var flower = vis.svg
-        .append('g')
-        .attr("class", "flower")
-        .attr("transform", "translate("+ (vis.rad*2) +"," + (vis.height/2 - vis.rad) + ")");
+    // selectbox listeners
+    d3.select("#start-year").on("change.flower", function() {vis.wrangleData()});
+    d3.select("#end-year").on("change.flower", function() {vis.wrangleData()});
 
     function petalPath(d) {
         var angle = (d.endAngle - d.startAngle) / 2,
@@ -126,10 +137,6 @@ Flower.prototype.updateVis = function() {
         return "rotate(" + (angle / Math.PI * 180) + ")";
     }
 
-    function rrev(angle) {
-        return "rotate(" + (-angle / Math.PI * 180) + ")"
-    }
-
     function polarToCartesian(angle, radius) {
         return {
             x: Math.cos(angle) * radius,
@@ -137,15 +144,33 @@ Flower.prototype.updateVis = function() {
         };
     };
 
-    var petal = flower.selectAll(".petal")
-        .data(vis.pie(vis.displayData))
-        .enter().append("path")
-        .attr("class", "petal");
-    
-    petal
-        .merge(petal)
+    // tipbox update functions
+    function showTipbox(d) {
+        vis.tipbox.text(d.data.region + ": " + d.data.num + " colonies lost")
+    }
+
+    function hideTipbox() {
+        vis.tipbox.text("");
+    }
+
+    // draw everything now that we have the functions set up
+    var petal_group = vis.flower.selectAll(".petal")
+        .data(vis.pie(vis.displayData), function(d) {return d.region});
+
+    var petals = petal_group.enter().append("path");
+
+    petals.merge(petal_group)
+        .attr("class", "petal")
+        .on("mouseover", function(d) {showTipbox(d)})
+        .on("mouseout", hideTipbox())
         .attr("transform", function(d) { return r((d.startAngle + d.endAngle) / 2); })
+        .style("fill", petalFill)
         .attr("d", petalPath)
         .style("stroke", petalStroke)
-        .style("fill", petalFill);
+        .style("opacity", 0)
+        .transition()
+        .duration(500)
+        .style("opacity", 1);
+
+    petals.exit().remove();
 }
