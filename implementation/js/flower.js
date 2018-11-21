@@ -53,13 +53,50 @@ Flower.prototype.wrangleData = function() {
     var vis = this;
 
     // TODO make this work
-    
-    vis.displayData = vis.data;
+    // get values from selectbox
+    vis.yearmin = d3.select("#start-year").property("value");
+    vis.yearmax = d3.select("#end-year").property("value");
+    vis.displayData = {};
+
+    console.log(vis.data)
+    vis.data.forEach(function(d) {
+       var value = d[vis.yearmin] - d[vis.yearmax];
+       var region = vis.censusdata[d.State];
+       if (!vis.displayData[region]) {
+           var temp = {};
+           temp['region'] = region;
+           temp['val'] = 0;
+           vis.displayData[region] = temp;
+       }
+       vis.displayData[region].val += value;
+    });
+    delete vis.displayData['undefined'];
+
+    // get data ready to be visualized
+    let copy = vis.displayData;
+    var tot = 0;
+    vis.displayData = [];
+    Object.keys(copy).forEach(function(t) {
+        if (copy[t].val > 0) {
+            vis.displayData.push(copy[t])
+            tot += copy[t].val;
+        }
+        else
+            vis.displayData.push({'region': copy[t].region, 'val': 0})
+    });
+
+    // change to percentages
+    vis.displayData.forEach(function(d) { d.val = d.val/tot;});
+    console.log(vis.displayData);
     vis.updateVis();
 }
 
 Flower.prototype.updateVis = function() {
     var vis = this;
+
+    // selectbox listeners
+    d3.select("#start-year").on("change", function() {vis.wrangleData()});
+    d3.select("#end-year").on("change", function() {vis.wrangleData()});
 
     var flower = vis.svg
         .append('g')
@@ -103,8 +140,11 @@ Flower.prototype.updateVis = function() {
     var petal = flower.selectAll(".petal")
         .data(vis.pie(vis.displayData))
         .enter().append("path")
-        .attr("class", "petal")
-        .attr("transform", function(d) { return rrev((d.startAngle + d.endAngle) / 2); })
+        .attr("class", "petal");
+    
+    petal
+        .merge(petal)
+        .attr("transform", function(d) { return r((d.startAngle + d.endAngle) / 2); })
         .attr("d", petalPath)
         .style("stroke", petalStroke)
         .style("fill", petalFill);

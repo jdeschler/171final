@@ -26,5 +26,5 @@ function createVis(error, usData, colCounts, censusRegions) {
         {region: "Mountain", val: .7},
         {region: "Pacific", val: .9}
     ]
-    var flower = new Flower("flower-area", tempdata, censusRegions);
+    var flower = new Flower("flower-area", colCounts, censusRegions);
 }
