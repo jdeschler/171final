@@ -130,7 +130,7 @@ Choropleth.prototype.updateVis = function(){
 
     // add legend, adapted from http://bl.ocks.org/KoGor/5685876
     var legend = vis.svg.selectAll("g.legend")
-        .data(vis.colors)
+        .data(vis.colors.reverse())
         .enter().append("g")
         .attr("class", "legend");
 
