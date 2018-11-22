@@ -27,4 +27,5 @@ function createVis(error, usData, colCounts, censusRegions) {
         {region: "Pacific", val: .9}
     ]
     var flower = new Flower("flower-area", colCounts, censusRegions);
+    var hexmesh = new HexMesh("hexmesh-area", colCounts);
 }

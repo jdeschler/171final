@@ -22,6 +22,16 @@
             Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees. </p>
     </div>
     <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4"></div>
+            <div class="col-md-2">
+                <button id="start-btn" type="button">Start</button>
+            </div>
+            <div class="col-md-2">
+                <button id="reset-btn" type="button">Reset</button>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
         <div class="row">
             <div class="col col-md-8">
                 <!-- GDP Bar Chart -->
@@ -32,10 +42,7 @@
             </div>
             <div class="col col-md-4">
                 <!-- Colony loss hexagons -->
-                <svg width="350" height="400">
-                    <rect width="350" height="400" fill="grey"></rect>
-                    <text fill="#ffffff" font-size="45" font-family="Verdana" x="0" y="150">Hexagons</text>
-                </svg>
+                <div id="hexmesh-area"></div>
             </div>
         </div>
     </div>
@@ -256,6 +263,7 @@
     <script src="js/nouislider.min.js"></script>
     <script src="js/choropleth.js"></script>
     <script src="js/flower.js"></script>
+    <script src="js/hexmesh.js"></script>
     <script src="js/main.js"></script>
 
 </body>
