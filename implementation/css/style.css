@@ -67,10 +67,6 @@ body {
 	opacity: .8;
 }
 
-.hexagon .fill {
-	fill: dimgray;
-}
-
 .mesh {
 	fill: none;
 	stroke: #000;
