@@ -33,6 +33,10 @@ body {
 	font-size: 24px;
 }
 
+.info-card {
+	background-color: darkgoldenrod;
+}
+
 .form-group {
 	padding-left: 15px;
 }
@@ -50,6 +54,10 @@ body {
 #title-header h3 {
 	color: #464a4e;
 	font-size: 24px;
+}
+
+#ccd-cause-info {
+    padding: 40px 0px;
 }
 
 /* Hexagon styles, adapted from: https://bl.ocks.org/mbostock/5249328?fbclid=IwAR3mm-lVv0is1fmY7ShvWgMCJEfRAPbjfcat7H6B1rTtMLeWaWcyT2V9LHM*/

@@ -15,11 +15,12 @@
     </div>
     <hr>
     <div class="container">
-        <p>Why are bees important? Lots of reasons. This text is just placeholder right now while we
-            actually go out and find the facts and figures however. Bees bees bees bees bees bees
-            Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees
-            Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees
-            Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees. </p>
+        <p><em>Apis mellifera</em>, the Western honeybee, has a long history of domestication and has played a vital role in
+            not only the production of honey, wax, and other commodities but also pollination. Estimates for their contribution towards
+            agricultural productivity reach XXX (Cite), and many farmers in the U.S. make use of honeybees for controlled pollination of
+            certain crops like almonds, apples and blueberries (Cite?). A 2000 Cornell study calculated that the western honey bee alone contributes
+            $14.6 billion USD to crop value in just the United States.</p>
+        <p>Despite these impressive estimates, honeybees are vulnerable and suffering in recent years.</p>
     </div>
     <div class="container">
         <div class="row justify-content-center">
@@ -54,14 +55,15 @@
     <div class="container text-center">
         <div class="row">
             <div class="col" style="display: block; margin:auto;">
-                <p>CCD Exposition. Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees.
-                    Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees. </p>
+                <p>Colony collapse disorder, or CCD, is a peculiar phenomenon where the able-bodied worker bees of the hive suddenly vanish,
+                    leaving behind their queen and several nurse bees, immature larva, and their food stores. A colony left in this state cannot persist; without a substantial
+                    population to forage and maintain the hive, recovery is almost certainly impossible. Every beekeeper will encounter colony loss at some point, be it from
+                    pests, disease or a poor foraging season; what makes CCD unique is the bizarre set of symptoms associated with it, including abandonment of the queen and
+                    an unwillingness for members of the colony to consume additional food a beekeeper may try to provide.</p>
+                <p>Since the mid 2000s, CCD has become an epidemic. In the United States, hobbyist beekeepers and commercial operations alike report losing more than half and up to 90% of their colonies.
+                    Smaller but still substantial numbers emerged from other parts of the world including Canada and the United States, Europe, South and Central America and Asia.
+                    The rate of colony loss around this time grew to nearly double what beekeepers normally expect (Cite). In recent years, due diligence has lead to slightly more tolerable percentages
+                    of colony loss, yet the problem continues to persist.</p>
             </div>
             <div class="col">
                 <!-- CCD image carousel -->
@@ -180,41 +182,57 @@
     <hr>
 
     <!-- CCD Causes -->
+    <!-- Image sources:
+    https://www.envchemgroup.com/how-harmful-are-neonicotinoids-to-the-environment.html
+    https://www.beeculture.com/catch-buzz-varroa-mites-pick-best-bees-bite/
+    https://www.citi.io/2015/07/14/who-and-what-are-the-root-cause-of-climate-change/
+    http://orangeblossombeekeepers.org/
+    -->
     <div class="container text-center section-header">
         <h2>CCD Causes</h2>
         <h3>subtitle</h3>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <!-- Flower Chart -->
-                <svg width="550" height="450" style="display: block; margin:auto;">
-                    <rect width="550" height="450" fill="grey"></rect>
-                    <text fill="#ffffff" font-size="45" font-family="Verdana" x="0" y="250">Flower Chart</text>
-                </svg>
+        <p>Since the earliest reports of CCD, beekeepers and scientists alike have put forward a number of hypotheses
+            about its cause. Currently we recognize that CCD is a complex issue that cannot be directly attributed to a single cause,
+            but there are a number that are more plausible and empirically supported than others. Click the boxes to the left to read
+            more about individual causes.</p>
+        <div class="row justify-content-center">
+            <div class="card info-card text-white text-center" style="width:250px">
+                <img class="card-img-top" src="img/neonics.png" style="height:200px">
+                <div class="card-body">
+                    <h5>Pesticides</h5>
+                    <p>Filler text for days</p>
+                    <button class="btn btn-primary" onclick="updateInfo('pesticides');">See more info</button>
+                </div>
             </div>
-            <div class="col" style="display: block; margin:auto;">
-                <p>Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees.
-                    Bees bees bees bees bees bees</p>
+            <div class="card info-card text-white text-center" style="width:250px">
+                <img class="card-img-top" src="img/varroa-larvae.jpg" style="height:200px">
+                <div class="card-body">
+                    <h5>Pests</h5>
+                    <p>Filler text for days</p>
+                    <button class="btn btn-primary" onclick="updateInfo('pests');">See more info</button>
+                </div>
             </div>
-            <div class="w-100"></div>
-            <div class="col" style="display: block; margin:auto;">
-                <p>Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees.
-                    Bees bees bees bees bees bees</p>
+            <div class="card info-card text-white text-center" style="width:250px">
+                <img class="card-img-top" src="img/climatechange.jpg" style="height:200px">
+                <div class="card-body">
+                    <h5>Climate change</h5>
+                    <p>Filler text for days</p>
+                    <button class="btn btn-primary" onclick="updateInfo('climate');">See more info</button>
+                </div>
             </div>
-            <div class="col">
-                <!-- Other vis -->
-                <svg width="550" height="450" style="display: block; margin:auto;">
-                    <rect width="550" height="450" fill="grey"></rect>
-                    <text fill="#ffffff" font-size="45" font-family="Verdana" x="0" y="150">Vis</text>
-                </svg>
+            <div class="card info-card text-white text-center" style="width:250px">
+                <img class="card-img-top" src="img/beekeeper.jpg" style="height:200px">
+                <div class="card-body">
+                    <h5>Humans</h5>
+                    <p>Filler text for days</p>
+                    <button class="btn btn-primary" onclick="updateInfo('humans');">See more info</button>
+                </div>
             </div>
         </div>
-    </div>
+        <div id="ccd-cause-info"></div>
+        <div id="neonic-chart"></div>
 
     <hr>
 
@@ -264,6 +282,7 @@
     <script src="js/choropleth.js"></script>
     <script src="js/flower.js"></script>
     <script src="js/hexmesh.js"></script>
+    <script src="js/ccdcauses.js"></script>
     <script src="js/main.js"></script>
 
 </body>
