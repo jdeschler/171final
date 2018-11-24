@@ -172,26 +172,26 @@ HexMesh.prototype.wrangleData = function() {
 
     // add listener to start button
     // start update sequence on click
-    d3.select("#start-btn").on("click.hex", function() {vis.updateVis()});
+    //d3.select("#start-btn").on("click.hex", function() {vis.updateVis()});
 }
 
 HexMesh.prototype.updateVis = function() {
     var vis = this;
 
-    var dur = 50;
+    vis.dur = 50;
     vis.hexes.forEach(function(d,i) {
         var slug = "#hex" + d;
         var hex = d3.select(slug);
-        hex.transition().duration(dur).delay(i*dur).attr("fill", "dimgray");
+        hex.transition().duration(vis.dur).delay(i*vis.dur).attr("fill", "dimgray");
     });
+}
 
-    // put listener on reset button
-    // reset and wait for start button on reset
-    d3.select("#reset-btn").on("click.hex", function() {
-        vis.hexes.forEach(function(d) {
-            var slug = "#hex" + d;
-            var hex = d3.select(slug);
-            hex.transition().duration(4*dur).attr("fill", "#FFB316");
-        });
+HexMesh.prototype.resetVis = function() {
+    var vis = this;
+
+    vis.hexes.forEach(function(d) {
+        var slug = "#hex" + d;
+        var hex = d3.select(slug);
+        hex.transition().duration(4*vis.dur).attr("fill", "#FFB316");
     });
 }

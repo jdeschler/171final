@@ -26,6 +26,18 @@ function createVis(error, usData, colCounts, censusRegions) {
         {region: "Mountain", val: .7},
         {region: "Pacific", val: .9}
     ]
+
     var flower = new Flower("flower-area", colCounts, censusRegions);
     var hexmesh = new HexMesh("hexmesh-area", colCounts);
+    var barchart = new BarChart("barchart-area");
+
+    d3.select("#start-btn").on("click.hex", function() {
+        hexmesh.updateVis();
+        barchart.updateVis();
+    });
+
+    d3.select("#reset-btn").on("click.hex", function() {
+        hexmesh.resetVis();
+        barchart.resetVis();
+    });
 }
