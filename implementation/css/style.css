@@ -92,3 +92,7 @@ body {
 	stroke-width: 2px;
 	pointer-events: none;
 }
+
+.area {
+	clip-path: url(#clip);
+}
