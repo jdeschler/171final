@@ -79,3 +79,43 @@ function updateInfo(selection) {
     }
     document.getElementById("ccd-cause-info").innerHTML = "<h4>" + subtitle + "</h4>" + "<p>" + text + "</p>";
 }
+//Honey area chart code
+//adapted from lab 6
+var parseDate = d3.timeParse("%Y");
+
+// Variables for the visualization instances
+var areachart, timeline;
+
+loadData();
+
+function loadData() {
+    d3.csv("data/honey-production-lb.csv", function (error, data) {
+        if (error) throw error;
+
+        honey_data = data;
+        // format the data
+        honey_data.forEach(function (d) {
+            d.Year = parseDate(d.Year);
+            d.Value = +d.Value;
+
+        });
+        createAreaVis();
+    });
+}
+
+function createAreaVis() {
+
+    areachart = new AreaChart("honey-chart-area", honey_data);
+    timeline = new Timeline("timeline", honey_data)
+}
+
+function brushed() {
+
+    var selectionRange = d3.brushSelection(d3.select(".brush").node());
+    var selectionDomain = selectionRange.map(timeline.x.invert);
+
+    areachart.x.domain(selectionDomain);
+    areachart.wrangleData();
+}
+
+
