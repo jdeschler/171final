@@ -34,7 +34,7 @@ body {
 }
 
 .info-card {
-	background-color: darkgoldenrod;
+	background-color: goldenrod;
 }
 
 .form-group {
@@ -58,6 +58,10 @@ body {
 
 #ccd-cause-info {
     padding: 40px 0px;
+}
+
+.chart-title {
+	font-size: 140%;
 }
 
 /* Hexagon styles, adapted from: https://bl.ocks.org/mbostock/5249328?fbclid=IwAR3mm-lVv0is1fmY7ShvWgMCJEfRAPbjfcat7H6B1rTtMLeWaWcyT2V9LHM*/

@@ -9,283 +9,359 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container text-center section-header" id="title-header">
-        <h1>To Bee or Not To Bee</h1>
-        <h3>That is the question</h3>
-    </div>
-    <hr>
-    <div class="container">
-        <p><em>Apis mellifera</em>, the Western honeybee, has a long history of domestication and has played a vital role in
-            not only the production of honey, wax, and other commodities but also pollination. Estimates for their contribution towards
-            agricultural productivity reach XXX (Cite), and many farmers in the U.S. make use of honeybees for controlled pollination of
-            certain crops like almonds, apples and blueberries (Cite?). A 2000 Cornell study calculated that the western honey bee alone contributes
-            $14.6 billion USD to crop value in just the United States.</p>
-        <p>Despite these impressive estimates, honeybees are vulnerable and suffering in recent years.</p>
-    </div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-4"></div>
-            <div class="col-md-2">
-                <button id="start-btn" type="button">Start</button>
-            </div>
-            <div class="col-md-2">
-                <button id="reset-btn" type="button">Reset</button>
-            </div>
-            <div class="col-md-4"></div>
+<div class="container text-center section-header" id="title-header">
+    <h1>Societal Collapse in the Hive</h1>
+    <h3>Exploring declining honeybee populations and potential causes</h3>
+</div>
+<hr>
+<div class="container">
+    <p><em>Apis mellifera</em>, the Western honeybee, has a long history of domestication and has played a vital role in
+        not only the production of honey, wax, and other commodities but also pollination. Estimates for their contribution towards
+        agricultural productivity reach XXX (Cite), and many farmers in the U.S. make use of honeybees for controlled pollination of
+        certain crops like almonds, apples and blueberries (Cite?). A 2000 Cornell study calculated that the western honey bee alone contributes
+        $14.6 billion USD to crop value in just the United States.</p>
+    <p>Despite these impressive estimates, honeybees are vulnerable and suffering in recent years.</p>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+            <button id="start-btn" type="button">Start</button>
         </div>
-        <div class="row">
-            <div class="col col-md-8">
-                <!-- GDP Bar Chart -->
-                <div id="barchart-area"></div>
-                <!-- <svg width="700" height="400">
-                    <rect width="700" height="400" fill="grey"></rect>
-                    <text fill="#ffffff" font-size="45" font-family="Verdana" x="0" y="150">GDP Bars</text>
-                </svg> -->
-            </div>
-            <div class="col col-md-4">
-                <!-- Colony loss hexagons -->
-                <div id="hexmesh-area"></div>
-            </div>
+        <div class="col-md-2">
+            <button id="reset-btn" type="button">Reset</button>
         </div>
+        <div class="col-md-4"></div>
     </div>
-    <hr>
-    <div class="container text-center section-header">
-        <h2>Defining Colony Collapse Disorder</h2>
-        <h3>subtitle</h3>
-    </div>
-    <div class="container text-center">
-        <div class="row">
-            <div class="col" style="display: block; margin:auto;">
-                <p>Colony collapse disorder, or CCD, is a peculiar phenomenon where the able-bodied worker bees of the hive suddenly vanish,
-                    leaving behind their queen and several nurse bees, immature larva, and their food stores. A colony left in this state cannot persist; without a substantial
-                    population to forage and maintain the hive, recovery is almost certainly impossible. Every beekeeper will encounter colony loss at some point, be it from
-                    pests, disease or a poor foraging season; what makes CCD unique is the bizarre set of symptoms associated with it, including abandonment of the queen and
-                    an unwillingness for members of the colony to consume additional food a beekeeper may try to provide.</p>
-                <p>Since the mid 2000s, CCD has become an epidemic. In the United States, hobbyist beekeepers and commercial operations alike report losing more than half and up to 90% of their colonies.
-                    Smaller but still substantial numbers emerged from other parts of the world including Canada and the United States, Europe, South and Central America and Asia.
-                    The rate of colony loss around this time grew to nearly double what beekeepers normally expect (Cite). In recent years, due diligence has lead to slightly more tolerable percentages
-                    of colony loss, yet the problem continues to persist.</p>
-            </div>
-            <div class="col">
-                <!-- CCD image carousel -->
-                <svg width="500" height="500">
-                    <rect width="500" height="500" fill="grey"></rect>
-                    <text fill="#ffffff" font-size="45" font-family="Verdana" x="0" y="150">Bee Carousel</text>
-                </svg>
-            </div>
+    <div class="row">
+        <div class="col col-md-8">
+            <!-- GDP Bar Chart -->
+            <div id="barchart-area"></div>
+            <!-- <svg width="700" height="400">
+                <rect width="700" height="400" fill="grey"></rect>
+                <text fill="#ffffff" font-size="45" font-family="Verdana" x="0" y="150">GDP Bars</text>
+            </svg> -->
+        </div>
+        <div class="col col-md-4">
+            <!-- Colony loss hexagons -->
+            <div id="hexmesh-area"></div>
         </div>
     </div>
+</div>
+<hr>
+<div class="container text-center section-header">
+    <h2>Defining Colony Collapse Disorder</h2>
+    <h3>An enigmatic epidemic</h3>
+</div>
+<div class="container text-center">
+    <div class="row">
+        <div class="col" style="display: block; margin:auto;">
+            <p>Colony collapse disorder, or CCD, is a peculiar phenomenon where the able-bodied worker bees of the hive suddenly vanish,
+                leaving behind their queen and several nurse bees, immature larva, and their food stores. A colony left in this state cannot persist; without a substantial
+                population to forage and maintain the hive, recovery is almost certainly impossible. Every beekeeper will encounter colony loss at some point, be it from
+                pests, disease or a poor foraging season; what makes CCD unique is the bizarre set of symptoms associated with it, including abandonment of the queen and
+                an unwillingness for members of the colony to consume additional food a beekeeper may try to provide.</p>
+            <p>Since the mid 2000s, CCD has become an epidemic. In the United States, hobbyist beekeepers and commercial operations alike report losing more than half and up to 90% of their colonies.
+                Smaller but still substantial numbers emerged from other parts of the world including Canada and the United States, Europe, South and Central America and Asia.
+                The rate of colony loss around this time grew to nearly double what beekeepers normally expect (Cite). In recent years, due diligence has lead to slightly more tolerable percentages
+                of colony loss, yet the problem continues to persist.</p>
+        </div>
+        <div class="col">
+            <!-- CCD image carousel -->
+            <!-- Sources:
+                https://www.keepingbackyardbees.com/reasons-for-hive-inspections/
+                http://www.lindseyleake.net/blog/2018/3/2/colony-collapse-disorder
+                https://infograph.venngage.com/p/96442/colony-collapse-disorder
+            -->
+            <div id="bee-carousel" class="carousel slide" data-ride="carousel">
 
-    <!-- Choropleth -->
-    <div class="container">
-        <div class="row justify-content-center">
-            <h3 style="padding-top: 20px">Explore Percent Loss of Colonies per State</h3>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <span>The map shows the percentage of colonies lost in the selected time frame, state by state. The flower shows the portion of those colonies that were in each US Census division. Mouse over each for more information!</span>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div id="choropleth-slider"></div>
-        </div>
-        <div class="row justify-content-center">
+                <!-- Indicators -->
+                <ul class="carousel-indicators">
+                    <li data-target="#bee-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#bee-carousel" data-slide-to="1"></li>
+                    <li data-target="#bee-carousel" data-slide-to="2"></li>
+                </ul>
 
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="start-year">Start:&nbsp;</label>
-                    <select class="form-control" id="start-year">
-                        <option value="1987">1987</option>
-                        <option value="1988">1988</option>
-                        <option value="1989">1989</option>
-                        <option value="1990">1990</option>
-                        <option value="1991">1991</option>
-                        <option value="1992">1992</option>
-                        <option value="1993">1993</option>
-                        <option value="1994">1994</option>
-                        <option value="1995">1995</option>
-                        <option value="1996">1996</option>
-                        <option value="1997">1997</option>
-                        <option value="1998">1998</option>
-                        <option value="1999">1999</option>
-                        <option value="2000">2000</option>
-                        <option value="2001">2001</option>
-                        <option value="2002">2002</option>
-                        <option value="2003">2003</option>
-                        <option value="2004">2004</option>
-                        <option value="2005">2005</option>
-                        <option value="2006">2006</option>
-                        <option value="2007">2007</option>
-                        <option value="2008">2008</option>
-                        <option value="2009">2009</option>
-                        <option value="2010">2010</option>
-                        <option value="2011">2011</option>
-                        <option value="2012">2012</option>
-                        <option value="2013">2013</option>
-                        <option value="2014">2014</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                    </select>
+                <!-- The slideshow -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/carousel1_a.jpg" alt="Bees" width="500" height="500">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/carousel1_b.jpg" alt="Bees" width="500" height="500">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/carousel1_c.jpg" alt="Bees" width="500" height="500">
+                    </div>
                 </div>
-            </form>
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="end-year">End:&nbsp;</label>
-                    <select class="form-control" id="end-year">
-                        <option value="1987">1987</option>
-                        <option value="1988">1988</option>
-                        <option value="1989">1989</option>
-                        <option value="1990">1990</option>
-                        <option value="1991">1991</option>
-                        <option value="1992">1992</option>
-                        <option value="1993">1993</option>
-                        <option value="1994">1994</option>
-                        <option value="1995">1995</option>
-                        <option value="1996">1996</option>
-                        <option value="1997">1997</option>
-                        <option value="1998">1998</option>
-                        <option value="1999">1999</option>
-                        <option value="2000">2000</option>
-                        <option value="2001">2001</option>
-                        <option value="2002">2002</option>
-                        <option value="2003">2003</option>
-                        <option value="2004">2004</option>
-                        <option value="2005">2005</option>
-                        <option value="2006">2006</option>
-                        <option value="2007">2007</option>
-                        <option value="2008">2008</option>
-                        <option value="2009">2009</option>
-                        <option value="2010">2010</option>
-                        <option value="2011">2011</option>
-                        <option value="2012">2012</option>
-                        <option value="2013">2013</option>
-                        <option value="2014">2014</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option selected="selected" value="2018">2018</defaultoption>
-                    </select>
-                </div>
-            </form>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div id="choropleth-area"></div>
-            </div>
-            <div class="col-md-4">
-                <div id="flower-area"></div>
+
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#bee-carousel" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#bee-carousel" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
             </div>
         </div>
     </div>
+</div>
 
-    <hr>
-
-    <!-- CCD Causes -->
-    <!-- Image sources:
-    https://www.envchemgroup.com/how-harmful-are-neonicotinoids-to-the-environment.html
-    https://www.beeculture.com/catch-buzz-varroa-mites-pick-best-bees-bite/
-    https://www.citi.io/2015/07/14/who-and-what-are-the-root-cause-of-climate-change/
-    http://orangeblossombeekeepers.org/
-    -->
-    <div class="container text-center section-header">
-        <h2>CCD Causes</h2>
-        <h3>subtitle</h3>
+<!-- Choropleth -->
+<div class="container">
+    <div class="row justify-content-center">
+        <h3 style="padding-top: 20px">Explore Percent Loss of Colonies per State</h3>
     </div>
-    <div class="container">
-        <p>Since the earliest reports of CCD, beekeepers and scientists alike have put forward a number of hypotheses
-            about its cause. Currently we recognize that CCD is a complex issue that cannot be directly attributed to a single cause,
-            but there are a number that are more plausible and empirically supported than others. Click the boxes to the left to read
-            more about individual causes.</p>
-        <div class="row justify-content-center">
-            <div class="card info-card text-white text-center" style="width:250px">
-                <img class="card-img-top" src="img/neonics.png" style="height:200px">
-                <div class="card-body">
-                    <h5>Pesticides</h5>
-                    <p>Filler text for days</p>
-                    <button class="btn btn-primary" onclick="updateInfo('pesticides');">See more info</button>
-                </div>
-            </div>
-            <div class="card info-card text-white text-center" style="width:250px">
-                <img class="card-img-top" src="img/varroa-larvae.jpg" style="height:200px">
-                <div class="card-body">
-                    <h5>Pests</h5>
-                    <p>Filler text for days</p>
-                    <button class="btn btn-primary" onclick="updateInfo('pests');">See more info</button>
-                </div>
-            </div>
-            <div class="card info-card text-white text-center" style="width:250px">
-                <img class="card-img-top" src="img/climatechange.jpg" style="height:200px">
-                <div class="card-body">
-                    <h5>Climate change</h5>
-                    <p>Filler text for days</p>
-                    <button class="btn btn-primary" onclick="updateInfo('climate');">See more info</button>
-                </div>
-            </div>
-            <div class="card info-card text-white text-center" style="width:250px">
-                <img class="card-img-top" src="img/beekeeper.jpg" style="height:200px">
-                <div class="card-body">
-                    <h5>Humans</h5>
-                    <p>Filler text for days</p>
-                    <button class="btn btn-primary" onclick="updateInfo('humans');">See more info</button>
-                </div>
-            </div>
-        </div>
-        <div id="ccd-cause-info"></div>
-        <div id="neonic-chart"></div>
-
-    <hr>
-
-    <div class="container text-center section-header">
-        <h2>A New Threat</h2>
-        <h3>Varroa Destructor</h3>
-    </div>
-
-    <!-- Varroa -->
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <svg width="500" height="500">
-                    <rect width="500" height="500" fill="grey"></rect>
-                    <text fill="#ffffff" font-size="45" font-family="Verdana" x="0" y="150">Varroa Carousel</text>
-                </svg>
-            </div>
-            <div class="col">
-                <p>CCD Exposition. Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees.
-                    Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees
-                    Bees bees bees bees bees bees Bees bees bees bees bees bees Bees bees bees bees bees bees. </p>
-            </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <span>The map shows the percentage of colonies lost in the selected time frame, state by state. The flower shows the portion of those colonies that were in each US Census division. Mouse over each for more information!</span>
         </div>
     </div>
-
-    <hr>
-    <!-- Footer -->
-    <div class="container text-center" id="references-names">
-        <p>Project by Jack Deschler, Leyla Brittan, Caroline Gutierrez, and Michael Scott.</p>
+    <div class="row justify-content-center">
+        <div id="choropleth-slider"></div>
     </div>
+    <div class="row justify-content-center">
 
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/d3.min.js"></script>
-    <script src="js/d3-tip.js"></script>
-    <script src="js/topojson.v1.min.js"></script>
-    <script src="js/queue.v1.min.js"></script>
-    <script src="js/topojson.v1.min.js"></script>
-    <script src="js/queue.v1.min.js"></script>
-    <script src="js/nouislider.min.js"></script>
-    <script src="js/choropleth.js"></script>
-    <script src="js/flower.js"></script>
-    <script src="js/hexmesh.js"></script>
-    <script src="js/barchart.js"></script>
-    <script src="js/ccdcauses.js"></script>
-    <script src="js/main.js"></script>
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="start-year">Start:&nbsp;</label>
+                <select class="form-control" id="start-year">
+                    <option value="1987">1987</option>
+                    <option value="1988">1988</option>
+                    <option value="1989">1989</option>
+                    <option value="1990">1990</option>
+                    <option value="1991">1991</option>
+                    <option value="1992">1992</option>
+                    <option value="1993">1993</option>
+                    <option value="1994">1994</option>
+                    <option value="1995">1995</option>
+                    <option value="1996">1996</option>
+                    <option value="1997">1997</option>
+                    <option value="1998">1998</option>
+                    <option value="1999">1999</option>
+                    <option value="2000">2000</option>
+                    <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                </select>
+            </div>
+        </form>
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="end-year">End:&nbsp;</label>
+                <select class="form-control" id="end-year">
+                    <option value="1987">1987</option>
+                    <option value="1988">1988</option>
+                    <option value="1989">1989</option>
+                    <option value="1990">1990</option>
+                    <option value="1991">1991</option>
+                    <option value="1992">1992</option>
+                    <option value="1993">1993</option>
+                    <option value="1994">1994</option>
+                    <option value="1995">1995</option>
+                    <option value="1996">1996</option>
+                    <option value="1997">1997</option>
+                    <option value="1998">1998</option>
+                    <option value="1999">1999</option>
+                    <option value="2000">2000</option>
+                    <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option selected="selected" value="2018">2018</defaultoption>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div id="choropleth-area"></div>
+        </div>
+        <div class="col-md-4">
+            <div id="flower-area"></div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<!-- CCD Causes -->
+<!-- Image sources:
+https://www.envchemgroup.com/how-harmful-are-neonicotinoids-to-the-environment.html
+https://www.beeculture.com/catch-buzz-varroa-mites-pick-best-bees-bite/
+https://www.citi.io/2015/07/14/who-and-what-are-the-root-cause-of-climate-change/
+http://orangeblossombeekeepers.org/
+-->
+<div class="container text-center section-header">
+    <h2>CCD Causes</h2>
+    <h3>Examining candidates</h3>
+</div>
+<div class="container">
+    <p>Since the earliest reports of CCD, beekeepers and scientists alike have put forward a number of hypotheses
+        about its cause. Currently we recognize that CCD is a complex issue that cannot be directly attributed to a single cause,
+        but there are a number that are more plausible and empirically supported than others. Click the boxes to the left to read
+        more about individual causes.</p>
+    <div class="row justify-content-center">
+        <div class="card info-card text-white text-center" style="width:250px">
+            <img class="card-img-top" src="img/neonics.png" style="height:200px">
+            <div class="card-body">
+                <h5>Pesticides</h5>
+                <button class="btn" onclick="updateInfo('pesticides');">See more info</button>
+            </div>
+        </div>
+        <div class="card info-card text-white text-center" style="width:250px">
+            <img class="card-img-top" src="img/varroa-larvae.jpg" style="height:200px">
+            <div class="card-body">
+                <h5>Pests</h5>
+                <button class="btn" onclick="updateInfo('pests');">See more info</button>
+            </div>
+        </div>
+        <div class="card info-card text-white text-center" style="width:250px">
+            <img class="card-img-top" src="img/climatechange.jpg" style="height:200px">
+            <div class="card-body">
+                <h5>Climate change</h5>
+                <button class="btn" onclick="updateInfo('climate');">See more info</button>
+            </div>
+        </div>
+        <div class="card info-card text-white text-center" style="width:250px">
+            <img class="card-img-top" src="img/beekeeper.jpg" style="height:200px">
+            <div class="card-body">
+                <h5>Humans</h5>
+                <button class="btn" onclick="updateInfo('humans');">See more info</button>
+            </div>
+        </div>
+    </div>
+    <div id="ccd-cause-info"></div>
+</div>
+<hr>
+<div class="container text-center section-header">
+    <h2>Neonicotinoids</h2>
+    <h3>A cost to productivity</h3>
+</div>
+<div class="container">
+    <p>The usage of a certain class of insecticides known as neonicotinoids is one of the most widely-suspected contributors to CCD. Chemically,
+        these compounds resemble the naturally-occurring nicotine. Though most commonly known for its human consumption, nicotene is
+        an antiherbivory defense employed by various plants. Favored for their lessened toxicity to mammals and birds, neonicotinoids include some of the
+        most widely used pesticides in recent decades. Usage of these compounds boomed in the United States beginning in the early 2000's, peaking at around
+        the time Colony Collapse Disorder came to public attention.</p>
+    <p>These insecticides are not without their cost. Laboratory studies have shown that neonicotinoids negatively affect honeybee health; even sublethal levels
+        have been shown to damage honeybee navigation ability and memory, two critically important traits for foraging bees. These results have long been contested, in particular
+        by industry giants backing usage of the pesticides. Fortunately, in recent years numerous governments have found their usage unacceptable. Limitations on their usage have been
+        in place since the early 2010's, with more groups outright banning their usage including the European Union in 2018. There is insufficient data to draw a meaningful conclusion,
+        but there has been a slight rebound in honeybee population in the past several years. Whether or not this is due to bans or better beekeeping practices remains to be seen.</p>
+    <div id="neonic-chart" style="text-align: center;"></div>
+</div>
+
+<hr>
+
+<div class="container text-center section-header">
+    <h2>A New Threat</h2>
+    <h3>Varroa destructor</h3>
+</div>
+<!-- Varroa -->
+<!-- img src:
+    https://phys.org/news/2015-07-bee-killing-mites-parasite-evolution.html
+    https://geneticliteracyproject.org/2017/09/13/monsanto-targets-bee-killing-varroa-mites-through-rna-interference/
+    http://hdoa.hawaii.gov/pi/varroa-mite-information/
+--->
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div id="varroa-carousel" class="carousel slide" data-ride="carousel">
+
+                <!-- Indicators -->
+                <ul class="carousel-indicators">
+                    <li data-target="#varroa-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#varroa-carousel" data-slide-to="1"></li>
+                    <li data-target="#varroa-carousel" data-slide-to="2"></li>
+                </ul>
+
+                <!-- The slideshow -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/carousel2_a.jpg" alt="Bees" width="500" height="500">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/carousel2_b.jpg" alt="Bees" width="500" height="500">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/carousel2_c.jpg" alt="Bees" width="500" height="500">
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#varroa-carousel" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#varroa-carousel" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+        <div class="col">
+            <p>Neonicotinoids are not the sole cause of collapsing honeybee populations. A species of parasitic mites known as <em>Varroa destructor</em>
+                have become an epidemic as well, present in nearly every part of the world except for Australia and some islands. Varroa mites enter bee colonies,
+                attach themselves to the bees and feed on hemolymph, the invertebrate equivalent of blood. Depending on the stage of their life cycle,
+                these mites target both adult bees and developing larvae and pupae. This consumption weakens bees and leaves them with a shorter lifespan, behavioral difficulties
+                involving pathing to and from the hive, and other developmental issues such as useless wings caused by various diseases the mites carry.</p>
+            <p>Historically, treatments against the mites have worked well, but almost every treatment incurs the risk of future resistance as mites that survive the treatments
+                reproduce. This rapid adaptation has made varroa mites nearly immune to conventional strategies, and today beekeepers employ a range of partially effective measures including
+                formic and oxalic acid treatments, essential oils, and even intentionally killing male bee brood which the mites have a preference for. Effort into breeding mite-resistant bees is
+                ongoing and promising, but in the meantime these parasites continue to ravage honeybee colonies worldwide.</p>
+        </div>
+    </div>
+</div>
+
+<hr>
+<!-- Footer -->
+<div class="container text-center" id="references-names">
+    <p>Project by Jack Deschler, Leyla Brittan, Caroline Gutierrez, and Michael Scott.</p>
+</div>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/d3.min.js"></script>
+<script src="js/d3-tip.js"></script>
+<script src="js/topojson.v1.min.js"></script>
+<script src="js/queue.v1.min.js"></script>
+<script src="js/topojson.v1.min.js"></script>
+<script src="js/queue.v1.min.js"></script>
+<script src="js/nouislider.min.js"></script>
+<script src="js/choropleth.js"></script>
+<script src="js/flower.js"></script>
+<script src="js/hexmesh.js"></script>
+<script src="js/barchart.js"></script>
+<script src="js/neonic-barchart.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
