@@ -1,0 +1,10 @@
+theme: jekyll-theme-primer
+title: Home
+description: To Bee or Not To Bee
+baseurl: "/171final/implementation" 
+markdown: kramdown 
+kramdown:
+    math_engine: mathjax
+    input: GFM
+    auto_ids: false
+    syntax_highlighter: rouge
