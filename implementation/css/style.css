@@ -3,6 +3,10 @@ body {
 	background-color: #FFE7B1;
 }
 
+.nav-link {
+	padding-right: 40px;
+}
+
 .section-header {
 	padding-bottom: 15px;
 }

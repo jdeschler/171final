@@ -8,13 +8,23 @@
     <link rel="stylesheet" href="css/nouislider.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="200">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <ul class="navbar-nav">
+        <li><a class="nav-link" href="#intro-nav">Intro</a></li>
+        <li><a class="nav-link" href="#colony-collapse-nav">Defining Colony Collapse Disorder</a></li>
+        <li><a class="nav-link" href="#honey-production-nav">Honey Production</a></li>
+        <li><a class="nav-link" href="#ccd-causes-nav">CCD Causes</a></li>
+        <li><a class="nav-link" href="#neonic-nav">Neonicotinoids</a></li>
+        <li><a class="nav-link" href="#varroa-nav">Varroa Mites</a></li>
+    </ul>
+</nav>
 <div class="container text-center section-header" id="title-header">
     <h1>Societal Collapse in the Hive</h1>
     <h3>Exploring declining honeybee populations and potential causes</h3>
 </div>
 <hr>
-<div class="container">
+<div class="container" id="intro-nav">
     <p><em>Apis mellifera</em>, the Western honeybee, has a long history of domestication and has played a vital role in
         not only the production of honey, wax, and other commodities but also pollination. Estimates for their contribution towards
         agricultural productivity reach XXX (Cite), and many farmers in the U.S. make use of honeybees for controlled pollination of
@@ -53,7 +63,7 @@
     <h2>Defining Colony Collapse Disorder</h2>
     <h3>An enigmatic epidemic</h3>
 </div>
-<div class="container text-center">
+<div class="container text-center" id="colony-collapse-nav">
     <div class="row">
         <div class="col" style="display: block; margin:auto;">
             <p>Colony collapse disorder, or CCD, is a peculiar phenomenon where the able-bodied worker bees of the hive suddenly vanish,
@@ -212,7 +222,7 @@
 </div>
 
 <hr>
-<div class="container text-center section-header">
+<div class="container text-center section-header" id="honey-production-nav">
     <h2>National Honey Production Over Time</h2>
 </div>
 <div class="container text-center" id = "honey-chart-area"></div>
@@ -228,7 +238,7 @@ https://www.beeculture.com/catch-buzz-varroa-mites-pick-best-bees-bite/
 https://www.citi.io/2015/07/14/who-and-what-are-the-root-cause-of-climate-change/
 http://orangeblossombeekeepers.org/
 -->
-<div class="container text-center section-header">
+<div class="container text-center section-header" id="ccd-causes-nav">
     <h2>CCD Causes</h2>
     <h3>Examining candidates</h3>
 </div>
@@ -270,7 +280,7 @@ http://orangeblossombeekeepers.org/
     <div id="ccd-cause-info"></div>
 </div>
 <hr>
-<div class="container text-center section-header">
+<div class="container text-center section-header" id="neonic-nav">
     <h2>Neonicotinoids</h2>
     <h3>A cost to productivity</h3>
 </div>
@@ -290,7 +300,7 @@ http://orangeblossombeekeepers.org/
 
 <hr>
 
-<div class="container text-center section-header">
+<div class="container text-center section-header" id="varroa-nav">
     <h2>A New Threat</h2>
     <h3>Varroa destructor</h3>
 </div>
