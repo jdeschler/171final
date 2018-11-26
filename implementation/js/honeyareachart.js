@@ -62,12 +62,13 @@ AreaChart.prototype.initVis = function() {
         .y0(vis.height)
         .y1(function(d) { return vis.y(d.Value); });
 
+// code for tooltip from http://bl.ocks.org/d3noob/a22c42db65eb00d4e369
+   vis.div = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
 
-    vis.tooltip = vis.svg.append("text")
-        .attr("x","0")
-        .attr("y", "0");
 
-    //https://bl.ocks.org/d3noob/119a138ef9bd1d8f0a8d57ea72355252
+    //code for valueline https://bl.ocks.org/d3noob/119a138ef9bd1d8f0a8d57ea72355252
     vis.valueline = d3.line()
         .x(function(d){ return vis.x(d.Year); })
         .y(function(d) { return vis.y(d.Value); });
@@ -111,7 +112,7 @@ AreaChart.prototype.updateVis = function(){
     area_body.exit().remove();
 
 
-    var dot = vis.svg.selectAll("circle")
+var dot = vis.svg.selectAll("circle")
         .data(vis.data)
         .attr("clip-path", "url(#clip)");
     //code for scatterplot partially from http://bl.ocks.org/d3noob/38744a17f9c0141bcd04
@@ -122,9 +123,19 @@ AreaChart.prototype.updateVis = function(){
         .attr("cx", function(d) { return vis.x(d.Year); })
         .attr("cy", function(d) { return vis.y(d.Value); })
         // code for tooltip from http://bl.ocks.org/d3noob/a22c42db65eb00d4e369
-        .on("mouseover", function(d){
-            vis.tooltip.text("Year: " + formatDate(d.Year) + " lbs: " + d.Value)}
-        );
+        .on("mouseover", function(d) {
+            vis.div.transition()
+                .duration(200)
+                .style("opacity", .9);
+            vis.div	.html("Year: " + formatDate(d.Year) + "<br/>"+ " lbs: " + commas(d.Value))
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+        })
+        .on("mouseout", function(d) {
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
 
 
     var line = vis.svg.selectAll(".line")
