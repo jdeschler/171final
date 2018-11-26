@@ -1,23 +1,16 @@
 
-//A lot of code adapted from lab 6
-
+//Code adapted from Lab 6
+//To format values and time objects
 var commas = d3.format(",");
+var formatDate = d3.timeFormat("%Y");
+var formatLbs = d3.format(".2s");
 
 AreaChart = function(_parentElement, _data){
     this.parentElement = _parentElement;
     this.data = _data;
     this.displayData = [];
-
-
-    console.log(this.data);
-
     this.initVis();
 }
-
-
-var formatDate = d3.timeFormat("%Y");
-
-var formatLbs = d3.format(".2s");
 
 
 AreaChart.prototype.initVis = function() {
@@ -27,7 +20,6 @@ AreaChart.prototype.initVis = function() {
 
     vis.width = 800 - vis.margin.left - vis.margin.right,
         vis.height = 400 - vis.margin.top - vis.margin.bottom;
-
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -68,7 +60,7 @@ AreaChart.prototype.initVis = function() {
         .style("opacity", 0);
 
 
-    //code for valueline https://bl.ocks.org/d3noob/119a138ef9bd1d8f0a8d57ea72355252
+//code for valueline https://bl.ocks.org/d3noob/119a138ef9bd1d8f0a8d57ea72355252
     vis.valueline = d3.line()
         .x(function(d){ return vis.x(d.Year); })
         .y(function(d) { return vis.y(d.Value); });
@@ -101,11 +93,10 @@ AreaChart.prototype.updateVis = function(){
 
     area_body.exit().remove();
 
-
 var dot = vis.svg.selectAll("circle")
         .data(vis.data)
         .attr("clip-path", "url(#clip)");
-    //code for scatterplot partially from http://bl.ocks.org/d3noob/38744a17f9c0141bcd04
+//code for scatterplot partially from http://bl.ocks.org/d3noob/38744a17f9c0141bcd04
     dot.enter().append("circle")
         .attr("class", "dot")
         .merge(dot)
@@ -127,7 +118,6 @@ var dot = vis.svg.selectAll("circle")
                 .style("opacity", 0);
         });
 
-
     var line = vis.svg.selectAll(".line")
         .data([vis.data])
         .attr("clip-path", "url(#clip)");
@@ -141,7 +131,7 @@ var dot = vis.svg.selectAll("circle")
         .attr("d", vis.valueline);
     line.exit().remove();
 
-    //code for clip path from https://bl.ocks.org/mbostock/4015254
+//code for clip path from https://bl.ocks.org/mbostock/4015254
     var areaPath = vis.svg.append("path")
         .attr("clip-path", "url(#clip)");
 
@@ -150,7 +140,7 @@ var dot = vis.svg.selectAll("circle")
         .append("rect")
         .attr("width", vis.width+10)
         .attr("height", vis.height);
-//help labeling axis from https://bl.ocks.org/d3noob/23e42c8f67210ac6c678db2cd07a747e
+//code for labeling axis from https://bl.ocks.org/d3noob/23e42c8f67210ac6c678db2cd07a747e
     vis.svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 0 - vis.margin.left +10)
