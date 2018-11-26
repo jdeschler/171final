@@ -132,7 +132,7 @@ var dot = vis.svg.selectAll("circle")
                 .style("top", (d3.event.pageY - 28) + "px");
         })
         .on("mouseout", function(d) {
-            div.transition()
+            vis.div.transition()
                 .duration(500)
                 .style("opacity", 0);
         });
