@@ -84,8 +84,6 @@ AreaChart.prototype.initVis = function() {
 AreaChart.prototype.wrangleData = function(){
     var vis = this;
 
-    // In the first step no data wrangling/filtering needed
-
     // Update the visualization
     vis.updateVis();
 }
