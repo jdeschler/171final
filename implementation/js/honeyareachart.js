@@ -36,7 +36,6 @@ AreaChart.prototype.initVis = function() {
         .append("g")
         .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
-// Scales and axes
     vis.x = d3.scaleTime()
         .range([0, vis.width])
         .domain(d3.extent(vis.data, function(d) { return d.Year; }));
@@ -58,7 +57,6 @@ AreaChart.prototype.initVis = function() {
     vis.svg.append("g")
         .attr("class", "y-axis axis");
 
-
     vis.area = d3.area()
         .x(function(d) { return vis.x(d.Year); })
         .y0(vis.height)
@@ -75,23 +73,15 @@ AreaChart.prototype.initVis = function() {
         .x(function(d){ return vis.x(d.Year); })
         .y(function(d) { return vis.y(d.Value); });
 
-
-
-
     vis.wrangleData();
-
 
 }
 
 AreaChart.prototype.wrangleData = function(){
     var vis = this;
 
-    // Update the visualization
     vis.updateVis();
 }
-
-
-
 
 AreaChart.prototype.updateVis = function(){
     var vis = this;
@@ -106,7 +96,7 @@ AreaChart.prototype.updateVis = function(){
     area_body.enter().append("path")
         .attr("class", "area")
         .merge(area_body)
-        .attr("fill","#E8900C")
+        .attr("fill","#FFB316")
         .attr("d", vis.area);
 
     area_body.exit().remove();
