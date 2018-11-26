@@ -16,10 +16,10 @@ Flower = function(_parentElement, _data, _censusdata) {
 Flower.prototype.initVis = function() {
     var vis = this;
 
-    vis.margin = {top: 0, right: 0, bottom: 30, left: 0};
+    vis.margin = {top: 150, right: 0, bottom: 30, left: 0};
 
     vis.width = 300 - vis.margin.left - vis.margin.right,
-        vis.height = 600 - vis.margin.top - vis.margin.bottom;
+        vis.height = 400 - vis.margin.top - vis.margin.bottom;
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")

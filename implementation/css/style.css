@@ -7,6 +7,10 @@ hr {
 	padding-bottom: 60px;
 }
 
+hr.no-pad {
+	padding-bottom: 15px;
+}
+
 .navbar {
 	background-color: #32383e;
 }

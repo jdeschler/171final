@@ -86,10 +86,34 @@ BarChart.prototype.initVis = function() {
         .attr("fill", "slategrey")
         .text('Simulation based on calculations provided by Morse and Calderone, "The Value of Honey Bees As Pollinators of U.S. Crops in 2000."');
 
-    vis.svg.selectAll("rect")
+
+    // add rects that will be dynamic
+    vis.svg.selectAll("rect.rect-statick")
         .data(vis.dataset)
         .enter()
         .append("rect")
+        .attr("class", "rect-static")
+        .attr("x", function (d) {
+            return vis.xScale(d.type);
+        })
+        .attr("transform", function(d) { return "translate(" + -50 + ",0)"; })
+        .attr("y", function (d) {
+            return vis.height - (vis.height - vis.yScale(d.value));
+        })
+        .attr("width", 100)
+        .attr("height", function (d) {
+            return vis.height - vis.yScale(d.value);
+        })
+        .attr("fill", "dimgray")
+        .attr("stroke", "#FFB316")
+        .attr("stroke-width", "3");
+
+    // add rects that will be dynamic
+    vis.svg.selectAll("rect.rect-dynamic")
+        .data(vis.dataset)
+        .enter()
+        .append("rect")
+        .attr("class", "rect-dynamic")
         .attr("x", function (d) {
             return vis.xScale(d.type);
         })
@@ -112,7 +136,7 @@ BarChart.prototype.wrangleData = function() {
 
     // add listener to start button
     // start update sequence on click
-    //d3.select("#start-btn").on("click.hex", function() {vis.updateVis()});
+    // d3.select("#start-btn").on("click.bar", function() {vis.updateVis()});
 }
 
 BarChart.prototype.updateVis = function() {
@@ -122,10 +146,11 @@ BarChart.prototype.updateVis = function() {
         {type: "Vegetables and Melons", value: 971.8},
         {type: "Field Crops", value: 25246.7}];
 
-    vis.svg.selectAll("rect")
+    vis.svg.selectAll("rect.rect-dynamic")
         .data(vis.dataset)
         .transition()
         .duration(9430)
+        .ease(d3.easeLinear)
         .attr("height", function(d) {
             return vis.height - vis.yScale(d.value);
         })
@@ -144,7 +169,7 @@ BarChart.prototype.resetVis = function() {
         {type: "Vegetables and Melons", value: 3955.7},
         {type: "Field Crops", value: 32063.4}];
 
-    vis.svg.selectAll("rect")
+    vis.svg.selectAll("rect.rect-dynamic")
         .data(vis.dataset)
         .transition()
         .duration(500)

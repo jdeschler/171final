@@ -17,7 +17,7 @@ HexMesh = function(_parentElement, _data) {
 HexMesh.prototype.initVis = function() {
     var vis = this;
 
-    vis.margin = {top: 0, right: 0, bottom: 0, left: 0};
+    vis.margin = {top: 20, right: 0, bottom: 0, left: 0};
 
     vis.width = 350 - vis.margin.left - vis.margin.right,
         vis.height = 400 - vis.margin.top - vis.margin.bottom;
@@ -29,21 +29,11 @@ HexMesh.prototype.initVis = function() {
         .append("g")
         .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
-    function mousedown(d) {
-        mousing = d.fill ? -1 : +1;
-        mousemove.apply(this, arguments);
-    }
-
-    function mousemove(d) {
-        if (mousing) {
-            d3.select(this).classed("fill", d.fill = mousing > 0);
-        }
-    }
-
-    function mouseup() {
-        mousemove.apply(this, arguments);
-        mousing = 0;
-    }
+    // Append Title
+    vis.beehives = vis.data.reduce(function(t,d) {return t + Number(d['2018'])}, 0)
+    vis.svg.append("text").attr("text-align", "center")
+        .attr("x", vis.width/2)
+        .text("Each hexagon = " + vis.beehives + " beehives");
 
     function hexTopology(radius, width, height) {
         var dx = radius * 2 * Math.sin(Math.PI / 3),
@@ -125,49 +115,46 @@ HexMesh.prototype.initVis = function() {
         .attr("d", function(d) {
             vis.hexagons.push(d);
             return path(topojson.feature(vis.topology, d));
-        })
-        .on("mousedown", mousedown)
-        .on("mousemove", mousemove)
-        .on("mouseup", mouseup);
+        });
 
     vis.svg.append("path")
         .datum(topojson.mesh(vis.topology, vis.topology.objects.hexagons))
         .attr("class", "mesh")
         .attr("d", path);
 
-    var mousing = 0;
     vis.wrangleData();
+}
+
+
+// from https://www.w3resource.com/javascript-exercises/javascript-array-exercise-17.php
+// its really dumb this isnt built in...
+var shuffle = function(arra1) {
+    var ctr = arra1.length, temp, index;
+
+    // While there are elements in the array
+    while (ctr > 0) {
+        // Pick a random index
+        index = Math.floor(Math.random() * ctr);
+        // Decrease ctr by 1
+        ctr--;
+        // And swap the last element with it
+        temp = arra1[ctr];
+        arra1[ctr] = arra1[index];
+        arra1[index] = temp;
+    }
+    return arra1;
 }
 
 HexMesh.prototype.wrangleData = function() {
     var vis = this;
 
     vis.numHex = vis.topology.objects.hexagons.geometries.length;
-    vis.beehives = vis.data.reduce(function(t,d) {return t + Number(d['2018'])}, 0)
     vis.hivesPerHex = vis.beehives/vis.numHex;
     vis.hexes = []
     for (var i = 0; i < vis.numHex; i++) {
         vis.hexes.push(i);
     }
 
-    // from https://www.w3resource.com/javascript-exercises/javascript-array-exercise-17.php
-    // its really dumb this isnt built in...
-    var shuffle = function(arra1) {
-        var ctr = arra1.length, temp, index;
-
-        // While there are elements in the array
-        while (ctr > 0) {
-        // Pick a random index
-            index = Math.floor(Math.random() * ctr);
-        // Decrease ctr by 1
-            ctr--;
-        // And swap the last element with it
-            temp = arra1[ctr];
-            arra1[ctr] = arra1[index];
-            arra1[index] = temp;
-        }
-        return arra1;
-    }
     vis.hexes = shuffle(vis.hexes);
 
     // add listener to start button
@@ -194,4 +181,6 @@ HexMesh.prototype.resetVis = function() {
         var hex = d3.select(slug);
         hex.transition().duration(4*vis.dur).attr("fill", "#FFB316");
     });
+    // THE HEXAGONS CHANGE IN A DIFFERENT ORDER EVERY TIME!!!!!!
+    vis.hexes = shuffle(vis.hexes);
 }
