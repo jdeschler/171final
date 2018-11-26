@@ -1,6 +1,7 @@
 
 //Code adapted from Lab 6
 //To format values and time objects
+//comma formating from http://bl.ocks.org/mstanaland/6106487
 var commas = d3.format(",");
 var formatDate = d3.timeFormat("%Y");
 var formatLbs = d3.format(".2s");
