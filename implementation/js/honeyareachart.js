@@ -1,6 +1,8 @@
 
 //A lot of code adapted from lab 6
 
+var commas = d3.format(",");
+
 AreaChart = function(_parentElement, _data){
     this.parentElement = _parentElement;
     this.data = _data;
