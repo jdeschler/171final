@@ -127,3 +127,8 @@ div.tooltip {
 	border-radius: 8px;
 	pointer-events: none;
 }
+
+.dot:hover{
+	fill: black;
+	r:8;
+}
