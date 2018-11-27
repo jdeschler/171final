@@ -67,6 +67,9 @@ Choropleth.prototype.wrangleData = function() {
             .text("Please select a valid range of years.")
         return;
     }
+    else {
+        vis.svg.select("#error-message").html("")
+    }
 
     // make displayData
     var agg = {}

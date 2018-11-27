@@ -68,10 +68,13 @@ Flower.prototype.wrangleData = function() {
     vis.yearmin = d3.select("#start-year").property("value");
     vis.yearmax = d3.select("#end-year").property("value");
     if (vis.yearmin >= vis.yearmax) {
-        vis.svg.append("text").attr("fill", "firebrick")
+        vis.svg.append("text").attr("id", "error-message").attr("fill", "firebrick")
             .attr("y", -130)
             .text("Please select a valid range of years.")
         return;
+    }
+    else {
+        vis.svg.select("#error-message").html("")
     }
 
     vis.displayData = {};
