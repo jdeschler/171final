@@ -67,8 +67,14 @@ Flower.prototype.wrangleData = function() {
     // get values from selectbox
     vis.yearmin = d3.select("#start-year").property("value");
     vis.yearmax = d3.select("#end-year").property("value");
-    vis.displayData = {};
+    if (vis.yearmin >= vis.yearmax) {
+        vis.svg.append("text").attr("fill", "firebrick")
+            .attr("y", -130)
+            .text("Please select a valid range of years.")
+        return;
+    }
 
+    vis.displayData = {};
     vis.data.forEach(function(d) {
        var value = d[vis.yearmin] - d[vis.yearmax];
        var region = vis.censusdata[d.State];

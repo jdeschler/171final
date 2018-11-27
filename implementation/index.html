@@ -5,7 +5,7 @@
     <title>To Bee or Not to Bee</title>
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/nouislider.min.css">
+    <link rel="stylesheet" href="js/node_modules/nouislider/distribute/nouislider.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="100">
@@ -136,7 +136,7 @@
         <div id="choropleth-slider"></div>
     </div>
     <div class="row justify-content-center">
-
+        <div id="slider" class="noUiSlider"></div>
         <form class="form-inline">
             <div class="form-group">
                 <label for="start-year">Start:&nbsp;</label>
@@ -380,7 +380,8 @@ http://orangeblossombeekeepers.org/
 <script src="js/queue.v1.min.js"></script>
 <script src="js/topojson.v1.min.js"></script>
 <script src="js/queue.v1.min.js"></script>
-<script src="js/nouislider.min.js"></script>
+<script src="js/node_modules/nouislider/distribute/nouislider.min.js"></script>
+<script src="js/wNumb.js"></script>
 <script src="js/choropleth.js"></script>
 <script src="js/flower.js"></script>
 <script src="js/hexmesh.js"></script>
