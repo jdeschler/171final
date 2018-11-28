@@ -90,7 +90,7 @@ loadData();
 
 function loadData() {
     d3.csv("data/honey-production-lb.csv", function (error, data) {
-        if (error) throw error;
+        if (!error){
 
         honey_data = data;
         // format the data
@@ -100,6 +100,7 @@ function loadData() {
 
         });
         createAreaVis();
+        }
     });
 }
 
