@@ -81,6 +81,10 @@ hr.no-pad {
 	font-size: 140%;
 }
 
+rect:hover {
+	opacity: .8;
+}
+
 /* Hexagon styles, adapted from: https://bl.ocks.org/mbostock/5249328?fbclid=IwAR3mm-lVv0is1fmY7ShvWgMCJEfRAPbjfcat7H6B1rTtMLeWaWcyT2V9LHM*/
 .hexagon {
 	fill: #FFB316;

@@ -83,7 +83,7 @@ function drawBarChart(data) {
         .attr("y", function(d) { return (y(d.value) - margin.bottom); })
         .attr("width", x.bandwidth())
         .attr("height", function(d) { return (height - y(d.value)); })
-        .attr("style", "fill: goldenrod");
+        .attr("style", "fill: #FFB316");
 
     bars.exit().remove();
 

@@ -84,7 +84,7 @@ BarChart.prototype.initVis = function() {
         .style("text-anchor", "middle")
         .style("font-size", "10px")
         .attr("fill", "slategrey")
-        .text('Simulation based on calculations provided by Morse and Calderone, "The Value of Honey Bees As Pollinators of U.S. Crops in 2000."');
+        .text('Simulation based on calculations provided by Morse and Calderone, "The Value of Honey Bees As Pollinators of U.S. Crops in 2000." (2)');
 
 
     // add rects that will be dynamic
