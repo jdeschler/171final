@@ -3,7 +3,7 @@
  */
 
 // Draw SVG area
-var margin = {top: 20, bottom: 20, right: 50, left: 60};
+var margin = {top: 20, bottom: 0, right: 50, left: 60};
 
 var width = 1000 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
@@ -11,7 +11,7 @@ var width = 1000 - margin.left - margin.right,
 var svg = d3.select("#neonic-chart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .attr("transform", "translate(" + margin.left + "," + margin.right + ")")
+    .attr("transform", "translate(" + margin.left + "," + margin.bottom + ")")
     .attr("align", "center");
 
 // Scales
@@ -68,6 +68,7 @@ function prepareData() {
 function drawBarChart(data) {
     // Update scales of visualization
     x.domain(data.map(function(d) { return d.key; }));
+    //x.domain([1991, 2016]);
     y.domain([0, d3.max(data, function(d) { return d.value; })]);
 
     // Draw bars
@@ -89,7 +90,7 @@ function drawBarChart(data) {
 
     // Draw axes
     xAxisGroup = svg.select(".x-axis")
-        .attr("transform", "translate(0," + (height - margin.bottom) + ")")
+        .attr("transform", "translate(0," + (height + margin.bottom) + ")")
         .call(xAxis);
 
     yAxisGroup = svg.select(".y-axis")
@@ -103,7 +104,7 @@ function drawBarChart(data) {
         .attr("transform", "translate(" + (width / 3) + "," + margin.top + ")")
         .attr("y", 0)
         .attr("x", 0)
-        .text("Neonicotinoid Usage in the U.S., 1991-2017");
+        .text("Neonicotinoid Usage in the U.S., 1991-2016");
 
     svg.append("text")
         .attr("class", "chart-subtitle")
