@@ -81,6 +81,10 @@ hr.no-pad {
 	font-size: 140%;
 }
 
+.carousel-caption {
+	text-shadow: 2px 2px black;
+}
+
 .img-src {
 	font-size: 75%;
 }
