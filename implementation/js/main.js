@@ -80,7 +80,7 @@ function updateInfo(selection) {
     document.getElementById("ccd-cause-info").innerHTML = "<h4>" + subtitle + "</h4>" + "<p>" + text + "</p>";
 }
 //Honey area chart code
-//adapted from lab 6
+//Adapted from lab 6
 var parseDate = d3.timeParse("%Y");
 
 // Variables for the visualization instances
