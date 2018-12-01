@@ -6,7 +6,7 @@
 var margin = {top: 20, bottom: 20, right: 50, left: 60};
 
 var width = 1000 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+    height = 400 - margin.top - margin.bottom;
 
 var svg = d3.select("#neonic-chart").append("svg")
     .attr("width", width + margin.left + margin.right)
