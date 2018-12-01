@@ -50,7 +50,7 @@ hr.no-pad {
 }
 
 .info-card {
-	background-color: goldenrod;
+	background-color: #FFB316;
 }
 
 .form-group {
@@ -63,7 +63,7 @@ hr.no-pad {
 }
 
 .title-header h1 {
-	font-family: "Muli 900", sans-serif;
+	font-family: 'Oswald', sans-serif;
 	font-weight: bolder;
 	font-size: 48px;
 }
@@ -122,6 +122,14 @@ rect:hover {
 	clip-path: url(#clip);
 }
 
+.bee-row {
+	text-align: center;
+}
+
+.bee-divider {
+	margin: 20px 30px;
+}
+
 /* adapted from http://bl.ocks.org/d3noob/a22c42db65eb00d4e369*/
 div.tooltip {
 	position: absolute;
@@ -140,3 +148,4 @@ div.tooltip {
 	fill: black;
 	r:8;
 }
+

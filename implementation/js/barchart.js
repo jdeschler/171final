@@ -88,7 +88,7 @@ BarChart.prototype.initVis = function() {
 
 
     // add rects that will be dynamic
-    vis.svg.selectAll("rect.rect-statick")
+    vis.svg.selectAll("rect.rect-static")
         .data(vis.dataset)
         .enter()
         .append("rect")
@@ -104,9 +104,9 @@ BarChart.prototype.initVis = function() {
         .attr("height", function (d) {
             return vis.height - vis.yScale(d.value);
         })
-        .attr("fill", "dimgray")
-        .attr("stroke", "#FFB316")
-        .attr("stroke-width", "3");
+        .attr("fill", "dimgray");
+        // .attr("stroke", "#FFB316")
+        // .attr("stroke-width", "3");
 
     // add rects that will be dynamic
     vis.svg.selectAll("rect.rect-dynamic")
