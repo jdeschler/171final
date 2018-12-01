@@ -62,7 +62,7 @@ Choropleth.prototype.wrangleData = function() {
     vis.yearmax = d3.select("#end-year").property("value");
 
     if (vis.yearmin >= vis.yearmax) {
-        vis.svg.append("text").attr("fill", "firebrick")
+        vis.svg.append("text").attr("id", "error-message").attr("fill", "firebrick")
             .attr("y", 20)
             .text("Please select a valid range of years.")
         return;
