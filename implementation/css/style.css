@@ -81,6 +81,10 @@ hr.no-pad {
 	font-size: 140%;
 }
 
+.img-src {
+	font-size: 75%;
+}
+
 rect:hover {
 	opacity: .8;
 }
