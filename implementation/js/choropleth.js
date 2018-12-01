@@ -68,7 +68,7 @@ Choropleth.prototype.wrangleData = function() {
         return;
     }
     else {
-        vis.svg.select("#error-message").html("")
+        vis.svg.selectAll("#error-message").html("")
     }
 
     // make displayData
