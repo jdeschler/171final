@@ -97,7 +97,7 @@ AreaChart.prototype.updateVis = function(){
 var dot = vis.svg.selectAll("circle")
         .data(vis.data)
         .attr("clip-path", "url(#clip)");
-//code for scatterplot partially from http://bl.ocks.org/d3noob/38744a17f9c0141bcd04
+//code for scatterplot partially adapted from http://bl.ocks.org/d3noob/38744a17f9c0141bcd04
     dot.enter().append("circle")
         .attr("class", "dot")
         .merge(dot)
