@@ -2,9 +2,9 @@ CS 171 Final Project
 Societal Collapse in the Hive
 Jack Deschler, Leyla Brittan, Michael Scott, Caroline Gutierrez
 
-PROJECT OVERVIEW
+# PROJECT OVERVIEW
 
-Our project “Societal Collapse in the Hive” aims to provide information about honeybee colony loss in the United States
+Our project **Societal Collapse in the Hive** (originally called To Bee or Not To Bee) aims to provide information about honeybee colony loss in the United States
 and to consider some of the repercussions of this decline.
 
 Our first visualization shows how honey bee colony loss affects crop production values in the United States. The user
@@ -34,7 +34,7 @@ responsible in part for colony collapse.
 We hope that the visualizations in our project will educate visitors about the possible causes and consequences of
 declining honeybee population, and bring more attention to a phenomenon that could become a major issue in future years.
 
-CODE OVERVIEW
+# CODE OVERVIEW
 
 The vast majority of the code that we wrote for this project was written by ourselves, adapting code that we had written for Labs and Homework assignments throughout the course. As a result, the visualizations are built almost entirely using the D3 library as we learned in class.
 
@@ -42,13 +42,16 @@ For some of the more difficult visualizations, we had to adapt code that was pre
 
 Finally, we adapted code for the navigation bar from https://www.w3schools.com/bootstrap4/bootstrap_scrollspy.asp?fbclid=IwAR3KZ8F1ggRol5e0AxjMrC7T43QdJrjryjsS2DMnpBvZohIxxVH5xzawNPo 
 
-LINKS
+# LINKS
 
-Project site: jdeschler.github.io/171final/implementation
+*Project site*: jdeschler.github.io/171final/implementation
 
-Screencast: https://vimeo.com/303942678?fbclid=IwAR2QbmS6BtY5xddBrIPEpElaUoX-4t9vbc52eIYV7n7_B-wLdbixALYGo-Y 
+*Screencast*: https://vimeo.com/303942678?fbclid=IwAR2QbmS6BtY5xddBrIPEpElaUoX-4t9vbc52eIYV7n7_B-wLdbixALYGo-Y 
 
-Image carousel code adapted from Bootstrap documentation: https://getbootstrap.com/docs/4.0/components/carousel/
-Navbar and scrollspy functionality implemented using Bootstrap, code adapted from https://www.w3schools.com/bootstrap4/bootstrap_scrollspy.asp
-
-Honey Area Chart Citations: Lab 6, tool tips: http://bl.ocks.org/d3noob/a22c42db65eb00d4e369, valueline: https://bl.ocks.org/d3noob/119a138ef9bd1d8f0a8d57ea72355252, scatterplot: http://bl.ocks.org/d3noob/38744a17f9c0141bcd04, clip path: https://bl.ocks.org/mbostock/4015254, labeling axes: https://bl.ocks.org/d3noob/23e42c8f67210ac6c678db2cd07a747e, comma formatting for lbs: http://bl.ocks.org/mstanaland/6106487.
+## Honey Area Chart Citations: 
+- tool tips: http://bl.ocks.org/d3noob/a22c42db65eb00d4e369, 
+- valueline: https://bl.ocks.org/d3noob/119a138ef9bd1d8f0a8d57ea72355252
+- scatterplot: http://bl.ocks.org/d3noob/38744a17f9c0141bcd04
+- clip path: https://bl.ocks.org/mbostock/4015254
+- labeling axes: https://bl.ocks.org/d3noob/23e42c8f67210ac6c678db2cd07a747e
+- comma formatting for lbs: http://bl.ocks.org/mstanaland/6106487.
