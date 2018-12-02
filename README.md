@@ -1,5 +1,5 @@
 CS 171 Final Project
-To Bee or Not To Bee
+Societal Collapse in the Hive
 Jack Deschler, Leyla Brittan, Michael Scott, Caroline Gutierrez
 
 PROJECT OVERVIEW
@@ -33,4 +33,7 @@ responsible in part for colony collapse.
 
 We hope that the visualizations in our project will educate visitors about the possible causes and consequences of
 declining honeybee population, and bring more attention to a phenomenon that could become a major issue in future years.
+
+Image carousel code adapted from Bootstrap documentation: https://getbootstrap.com/docs/4.0/components/carousel/
+Navbar and scrollspy functionality implemented using Bootstrap, code adapted from https://www.w3schools.com/bootstrap4/bootstrap_scrollspy.asp
 
