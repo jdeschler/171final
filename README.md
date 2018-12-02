@@ -37,5 +37,5 @@ declining honeybee population, and bring more attention to a phenomenon that cou
 Image carousel code adapted from Bootstrap documentation: https://getbootstrap.com/docs/4.0/components/carousel/
 Navbar and scrollspy functionality implemented using Bootstrap, code adapted from https://www.w3schools.com/bootstrap4/bootstrap_scrollspy.asp
 
-Honey Area Chart Citations: Lab 6, tool tips: http://bl.ocks.org/d3noob/a22c42db65eb00d4e369, valueline: https://bl.ocks.org/d3noob/119a138ef9bd1d8f0a8d57ea72355252, scatterplot: http://bl.ocks.org/d3noob/38744a17f9c0141bcd04, clip path: https://bl.ocks.org/mbostock/4015254, labeling axes: https://bl.ocks.org/d3noob/23e42c8f67210ac6c678db2cd07a747e.
+Honey Area Chart Citations: Lab 6, tool tips: http://bl.ocks.org/d3noob/a22c42db65eb00d4e369, valueline: https://bl.ocks.org/d3noob/119a138ef9bd1d8f0a8d57ea72355252, scatterplot: http://bl.ocks.org/d3noob/38744a17f9c0141bcd04, clip path: https://bl.ocks.org/mbostock/4015254, labeling axes: https://bl.ocks.org/d3noob/23e42c8f67210ac6c678db2cd07a747e, comma formatting for lbs: http://bl.ocks.org/mstanaland/6106487.
 
