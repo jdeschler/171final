@@ -34,3 +34,17 @@ responsible in part for colony collapse.
 We hope that the visualizations in our project will educate visitors about the possible causes and consequences of
 declining honeybee population, and bring more attention to a phenomenon that could become a major issue in future years.
 
+
+CODE OVERVIEW
+
+The vast majority of the code that we wrote for this project was written by ourselves, adapting code that we had written for Labs and Homework assignments throughout the course. As a result, the visualizations are built almost entirely using the D3 library as we learned in class.
+
+For some of the more difficult visualizations, we had to adapt code that was pre-written on the Internet. We did this for the flower visualization, adapting code from http://bl.ocks.org/herrstucki/6199768?fbclid=IwAR1Gc-Bpk-GBaSM4Y13jViCO7h7CuudiYm9pc4Nk3WfMfr6o5NQvHjwRoDs, and for the mesh of hexagons that represent beehives, adapting code from https://bl.ocks.org/mbostock/5249328?fbclid=IwAR3mm-lVv0is1fmY7ShvWgMCJEfRAPbjfcat7H6B1rTtMLeWaWcyT2V9LHM.
+
+Finally, we adapted code for the navigation bar from https://www.w3schools.com/bootstrap4/bootstrap_scrollspy.asp?fbclid=IwAR3KZ8F1ggRol5e0AxjMrC7T43QdJrjryjsS2DMnpBvZohIxxVH5xzawNPo 
+
+LINKS
+
+Project site: jdeschler.github.io/171final/implementation
+
+Screencast: https://vimeo.com/303942678?fbclid=IwAR2QbmS6BtY5xddBrIPEpElaUoX-4t9vbc52eIYV7n7_B-wLdbixALYGo-Y 

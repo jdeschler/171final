@@ -29,12 +29,6 @@ HexMesh.prototype.initVis = function() {
         .append("g")
         .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
-    // Append Title
-    vis.beehives = vis.data.reduce(function(t,d) {return t + Number(d['2018'])}, 0)
-    vis.svg.append("text").attr("text-align", "center")
-        .attr("x", vis.width/2)
-        .text("Each hexagon = " + vis.beehives + " beehives");
-
     function hexTopology(radius, width, height) {
         var dx = radius * 2 * Math.sin(Math.PI / 3),
             dy = radius * 1.5,
